@@ -6,20 +6,18 @@ from io import BytesIO
 from pathlib import Path
 import logging
 import datetime
+from include.utils import dataset_names
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-DATA_SET = {
-    'diesel_gnv':'ultimas-4-semanas-diesel-gnv.csv',
-    'gasolina_etanol':'ultimas-4-semanas-gasolina-etanol.csv',
-    'glp':'ultimas-4-semanas-glp.csv'
-}
+DATA_SET = dataset_names()
 
 URL_BASE = 'https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/shpc/qus/'
 
 def extract_anp_data(output_dir):
     output_path = Path(output_dir)
-    output_path.mkdir(parents=True, exist_ok=True)
+    if not output_path.exists():
+        output_path.mkdir(parents=True, exist_ok=True)
 
     for dataset, filename in DATA_SET.items():
         url = URL_BASE + filename
@@ -32,7 +30,8 @@ def extract_anp_data(output_dir):
             sep=';'
         )
 
-        path_export = output_path / f"{datetime.datetime.now().strftime('%Y%m%d')}_{dataset}.parquet"
+        # path_export = output_path / f"{datetime.datetime.now().strftime('%Y%m%d')}_{dataset}.parquet"
+        path_export = output_path / f"{dataset}.parquet"
 
         df['dataset'] = dataset
         df.to_parquet(
