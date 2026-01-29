@@ -46,7 +46,7 @@ d-----        21/01/2026     22:49                tests
 
 ### Execucao DAG:
 - Conecta carrega os dados, salva local no container, cria as tabelas, pega os daos local e append nas tabelas.
-![ExecutionDone_step1](assets\images\dag_success_execution.png)
+![ExecutionDone_step1](assets/images/dag_success_execution.png)
 
 # Referência:
 - [Video do DataWay](https://www.youtube.com/watch?v=cET2DwVhnc4)
