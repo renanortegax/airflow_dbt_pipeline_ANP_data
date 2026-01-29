@@ -32,6 +32,16 @@ d-----        21/01/2026     22:49                tests
 3. Parar de rodar: `astro dev stop`
 4. Reiniciar o servico: `astro dev restart`
 5. Rodar comandos bash no container: `astro dev bash` && `ls`
+6. Encerrar o container e deletar todo os metadados e dados do database: `astro dev kill`
+7. Rodar determinada dag: `astro run <dag-id>`
+
+### Conexao com postgres:
+- Adicionado no requirements.txt:
+    - apache-airflow-providers-postgres
+    - psycopg2-binary
+- Conexao criada diretamente via UI do Airflow:
+    - connectionid: postgres_raw
+    - postgres / postgres / postgres / porta 5432
 
 # Referência:
 - [Video do DataWay](https://www.youtube.com/watch?v=cET2DwVhnc4)
