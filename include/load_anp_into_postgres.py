@@ -43,9 +43,9 @@ def cast_type_anp_raw_dataset(df):
     return df
 
 def create_table_if_not_exists(dataset_name):
-    hook = PostgresHook(postgres_conn_id="postgres_raw")
+    pg_hookhook = PostgresHook(postgres_conn_id="postgres_raw")
     ddl = ddl_table_raw_anp_data(dataset_name=dataset_name)
-    hook.run(ddl)
+    pg_hookhook.run(ddl)
     logging.info("Tabela %s criada caso nao exista", dataset_name)
 
 
@@ -55,8 +55,8 @@ def treat_columns_name_anp_raw_dataset(df):
 
 
 def load_dataset_into_db(dataset_name, parquet_path):
-    hook = PostgresHook(postgres_conn_id="postgres_raw")
-    engine = hook.get_sqlalchemy_engine()
+    pg_hookhook = PostgresHook(postgres_conn_id="postgres_raw")
+    engine = pg_hookhook.get_sqlalchemy_engine()
 
     df = pd.read_parquet(parquet_path)
 

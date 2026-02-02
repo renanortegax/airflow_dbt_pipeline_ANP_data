@@ -1,0 +1,5 @@
+version: '0.1'
+name: 'dbt_anp_project'
+profile: dbt_anp_project
+vars:
+    my_name: "No entry"

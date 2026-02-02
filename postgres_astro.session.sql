@@ -15,3 +15,6 @@ limit 100;
 drop table raw_diesel_gnv;
 drop table raw_gasolina_etanol;
 drop table raw_glp;
+
+
+SELECT * FROM "postgres"."public"."model1"

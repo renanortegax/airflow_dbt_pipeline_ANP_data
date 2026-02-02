@@ -13,3 +13,7 @@ airflow.db
 *.parquet
 *.csv
 .vscode/
+target/
+dbt_packages/
+logs/
+.user.yml

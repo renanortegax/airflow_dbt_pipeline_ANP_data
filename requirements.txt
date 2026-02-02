@@ -2,3 +2,4 @@
 fastparquet
 apache-airflow-providers-postgres
 psycopg2-binary
+dbt-postgres
