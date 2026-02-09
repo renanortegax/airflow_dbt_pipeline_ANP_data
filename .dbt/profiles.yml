@@ -1,4 +1,4 @@
-dbt_anp_project:
+dbt_anp:
   target: dev
   outputs:
     dev:

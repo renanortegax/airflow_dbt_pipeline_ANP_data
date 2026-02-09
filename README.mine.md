@@ -88,6 +88,20 @@ astro@f54a03cc3488:/usr/local/airflow/include/dbt/dbt_anp_project$ dbt debug
 ### Execucao DAG:
 - Conecta carrega os dados, salva local no container, cria as tabelas, pega os daos local e append nas tabelas.
 ![ExecutionDone_step1](assets/images/dag_success_execution.png)
+- Conectar no postgres dentro do container do astro:
+    - `astro dev bash` && `psql -h postgres -U postgres -d postgres`
+        - -h hostname // -U username //-d dbname -> [ref](https://www.postgresql.org/docs/current/app-psql.html)
+
+
+### Criando com Cosmos
+- Criar pasta .dbt na raíz
+    - add profiles.yml
+- add astronomer-cosmos no requirements
+- instalando dbt via dockerfile
+- include/profiles.py
+- na pasta de dag: `dbt init dbt_anp`
+- criar uma dag .py (`dags\dbt_dag.py`) pra criar as tasks e tudo via dbt usando cosmos
+
 
 # Referência:
 - [Video do DataWay](https://www.youtube.com/watch?v=cET2DwVhnc4)
